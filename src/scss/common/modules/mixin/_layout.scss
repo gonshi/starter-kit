@@ -47,3 +47,15 @@
     @if $width  != '' { width: $width; margin-left: -$width / 2; }
     @if $height != '' { height: $height; margin-top: -$height / 2; }
 }
+
+@mixin pc{
+    body.is-pc{
+        @content;
+    }
+}
+
+@mixin small-height{
+    @media screen and (max-height: 800px) {
+        @content;
+    }
+}

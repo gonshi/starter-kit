@@ -14,7 +14,7 @@ body {
 }
 
 a {
-    color: $link-color;
+    color: inherit;
     text-decoration: none;
 
     &:link, &:visited {
@@ -26,5 +26,20 @@ a {
     }
 }
 
-.contents {
+.only-pc{
+    display: none;
+}
+
+@include pc{
+    .only-pc{
+        display: block;
+    }
+
+    .only-sp{
+        display: none;
+    }
+}
+
+*{
+    max-height: 999999px;
 }
