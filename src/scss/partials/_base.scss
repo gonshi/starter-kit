@@ -6,6 +6,7 @@ body {
     background-color: $bg-color;
     color: $font-color;
     font-size: #{$base-font-size}px;
+    -webkit-text-size-adjust: 100%;
     @if $legacy-support-for-ie {
         *font-size: small;
     }
