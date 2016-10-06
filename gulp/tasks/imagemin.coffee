@@ -6,7 +6,7 @@ $ = (require 'gulp-load-plugins')()
 # Optimize Images
 gulp.task 'imagemin', () ->
     return gulp.src([
-        config.path.image + '**/*'
+        config.path.image + '**/*.png'
     ])
         .pipe(pngmin())
         .pipe(gulp.dest(config.path.dist + 'img'))
