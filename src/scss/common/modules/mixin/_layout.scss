@@ -17,6 +17,22 @@
     @if $right  != '' { right: $right; }
 }
 
+// fixed
+// 固定位置に配置
+// @param $top
+// @param $right
+// @param $bottom
+// @param $left
+//
+@mixin fixed($top, $right, $bottom, $left) {
+    position: fixed;
+
+    @if $top    != '' { top: $top; }
+    @if $bottom != '' { bottom: $bottom; }
+    @if $left   != '' { left: $left; }
+    @if $right  != '' { right: $right; }
+}
+
 //
 // absolute-center
 // 中央に絶対配置
@@ -30,4 +46,16 @@
 
     @if $width  != '' { width: $width; margin-left: -$width / 2; }
     @if $height != '' { height: $height; margin-top: -$height / 2; }
+}
+
+@mixin pc{
+    body.is-pc{
+        @content;
+    }
+}
+
+@mixin small-height{
+    @media screen and (max-height: 800px) {
+        @content;
+    }
 }

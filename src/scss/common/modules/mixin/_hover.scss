@@ -1,14 +1,10 @@
 //
 // hover
 // ------------------------------
-@mixin hover() {
-    &:hover {
-        @include opacity(.7);
+@mixin hover(){
+    body.is-pc &{
+        &:hover{
+            @content;
+        }
     }
-
-    // @include mq-sp {
-    //     &:hover {
-    //         opacity: 1;
-    //     }
-    // }
 }
