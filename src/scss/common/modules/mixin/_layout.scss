@@ -54,6 +54,12 @@
     }
 }
 
+@mixin sp{
+    body.is-sp{
+        @content;
+    }
+}
+
 @mixin small-height{
     @media screen and (max-height: 800px) {
         @content;

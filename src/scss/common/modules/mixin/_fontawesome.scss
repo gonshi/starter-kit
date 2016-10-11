@@ -1,0 +1,7 @@
+@mixin font-awesome($name) {
+    &:before{
+        display: block;
+        font-family: FontAwesome;
+        content: $name;
+    }
+}
