@@ -16,9 +16,10 @@ typeStr = ""
 typeDist = ""
 
 # Directory
+projectName = ""
 root = "./"
 src = "#{root}src/"
-dist = "#{root}dist/"
+dist = "#{root}../wp-content/themes/#{projectName}/"
 # common = "#{root}dist/common/"
 # src_common = "#{root}src/common/"
 
@@ -31,7 +32,7 @@ config =
         "htdocs" : dist + "#{typeDist}/"
         # distribution
         "dist"   : dist + "#{typeDist}/"
-        "css"    : dist + "#{typeDist}/css/"
+        "css"    : dist + "#{typeDist}/"
         "js"     : dist + "#{typeDist}/js/"
         "image"  : dist + "#{typeDist}/img/"
         # sources
