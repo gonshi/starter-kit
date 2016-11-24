@@ -1,7 +1,16 @@
-@mixin font-awesome($name) {
-    &:before{
-        display: block;
-        font-family: FontAwesome;
-        content: $name;
+@mixin font-awesome($name, $which: "before") {
+    @if $which == "before"{
+        &:before{
+            display: block;
+            font-family: FontAwesome;
+            content: $name;
+        }
+    }
+    @else{
+        &:after{
+            display: block;
+            font-family: FontAwesome;
+            content: $name;
+        }
     }
 }
