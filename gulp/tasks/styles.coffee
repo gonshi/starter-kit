@@ -4,6 +4,11 @@ sass = require('gulp-ruby-sass')
 $ = (require 'gulp-load-plugins')()
 
 option =
+    style: 'expanded',
+    precision: 10,
+    sourcemap: false
+
+option_deploy =
     style: 'compressed',
     precision: 10,
     sourcemap: false
@@ -24,3 +29,14 @@ gulp.task 'styles', () ->
         .pipe(gulp.dest(config.path.css))
         .pipe($.size({ title: 'styles' }))
 
+gulp.task 'styles:deploy', () ->
+    # For best performance, don't add Sass partials to `src`
+    return sass([
+        config.path.scss + '*.{sass,scss}'
+    ], option_deploy)
+        .pipe($.plumber())
+        .pipe($.changed('styles', { extension: '.{sass,scss}' }))
+        .on('error', sass.logError)
+        .pipe($.autoprefixer({ browsers: config.autoprefixer }))
+        .pipe(gulp.dest(config.path.css))
+        .pipe($.size({ title: 'styles' }))

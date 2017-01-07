@@ -1,20 +1,16 @@
 gulp = require 'gulp'
 awspublish = require 'gulp-awspublish'
 config = require '../config'
+fs = require 'fs'
 
-# upload dist to s3 bucket
 gulp.task 'publish', () ->
-    credentials = require '../aws-credentials.json'
-    publisher = awspublish.create(credentials)
+    key = JSON.parse(fs.readFileSync('./aws.json'))
+    publisher = awspublish.create(key)
+    headers   = {
+      'Cache-Control': 'max-age=315360000, no-transform, public'
+    }
 
-    srcPattern = [
-        config.path.dist + '/*.html',
-        config.path.dist + '/**/?(css|js|img)/**.*'
-    ]
-
-    gulp.src(srcPattern)
-        .pipe(publisher.publish())
-        .pipe(publisher.sync())
-        .pipe(awspublish.reporter({
-            states: ['create', 'update', 'delete']
-        }))
+    return gulp.src("#{config.path.dist}**")
+             .pipe(publisher.publish(headers))
+             .pipe(publisher.cache())
+             .pipe(awspublish.reporter())
