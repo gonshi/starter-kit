@@ -22,6 +22,8 @@ dist = "#{root}dist/"
 # common = "#{root}dist/common/"
 # src_common = "#{root}src/common/"
 
+js_lib_path = src + "js/#{typeStr}/lib/"
+
 config =
     DEFAULT_TYPE: "pc"
     distTypeDir: ""
@@ -45,6 +47,10 @@ config =
         "fonts"       : src + "fonts/#{typeStr}/"
 
         # "docs": src + "docs/'
+
+    js_concat_list: [
+        "#{dist}#{typeDist}/js/script.js"
+    ]
 
     # entry point
     entry:
