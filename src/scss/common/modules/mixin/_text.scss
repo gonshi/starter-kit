@@ -11,6 +11,10 @@
         white-space: nowrap;
         text-indent: 110%;
     }
+
+    span{
+        display: none;
+    }
 }
 
 @mixin ellipsis {
