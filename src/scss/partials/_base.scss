@@ -2,7 +2,7 @@
 // Base
 // ==========================================================================
 body {
-    min-width: $wrapper-width;
+    visibility: hidden;
     background-color: $bg-color;
     color: $font-color;
     font-size: #{$base-font-size}px;
@@ -23,16 +23,35 @@ a {
     }
 }
 
-.only-pc{
-    display: none;
+.wrapper{
+    position: relative;
+}
+
+.modal{
+    @include fixed(0, 0, 0, 0);
 }
 
 @include pc{
-    .only-pc{
-        display: block;
-    }
+    min-width: $wrapper-width;
+    visibility: visible;
 
     .only-sp{
+        display: none;
+    }
+
+    img{
+        visibility: hidden;
+
+        &.is-visible{
+            visibility: visible;
+        }
+    }
+}
+
+@include sp{
+    visibility: visible;
+
+    .only-pc{
         display: none;
     }
 }
