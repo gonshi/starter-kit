@@ -1,0 +1,31 @@
+block path
+  - var path = "./";
+
+doctype html
+html(lang="ja")
+  head(prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml")
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=750, user-scalable=no")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    title= title
+    meta(name="description", content=description)
+    meta(name="keywords", content="")
+    meta(property="og:title" content=title)
+    meta(property="og:type" content="")
+    meta(property="og:url" content="")
+    meta(property="og:image" content="")
+    meta(property="og:site_name" content="")
+    meta(property="og:description" content=description)
+    meta(property="fb:app_id" content="")
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:site" content=title)
+    meta(name="twitter:title" content=title)
+    meta(name="twitter:description" content=description)
+    meta(name="twitter:image:src" content="#{url}img/ogp.jpg")
+    link(rel="shortcut icon" href="#{path}favicon.ico")
+    link(href="#{path}css/style.css" rel="stylesheet")
+  body
+    block body
+    script(src="#{path}js/script.min.js")
+    script
+      include ga.js

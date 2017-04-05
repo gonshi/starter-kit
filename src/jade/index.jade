@@ -1,29 +1,7 @@
-doctype html
-html(lang="ja")
-  head(prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml")
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=750, user-scalable=no")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    title= title
-    meta(name="description", content=description)
-    meta(name="keywords", content="")
-    meta(property="og:title" content=title)
-    meta(property="og:type" content="")
-    meta(property="og:url" content="")
-    meta(property="og:image" content="")
-    meta(property="og:site_name" content="")
-    meta(property="og:description" content=description)
-    meta(property="fb:app_id" content="")
-    meta(name="twitter:card" content="summary_large_image")
-    meta(name="twitter:site" content=title)
-    meta(name="twitter:title" content=title)
-    meta(name="twitter:description" content=description)
-    meta(name="twitter:image:src" content="#{url}img/ogp.jpg")
-    link(rel="shortcut icon" href="/favicon.ico")
-    link(href="css/style.css" rel="stylesheet")
-    script(src="js/lib/modernizr.min.js")
-  body
-    script(src="js/script.js")
-    // Google Analytics: change UA-XXXXX-X to be your site's ID
-    script
-      include ga.js
+extends ./_layout
+
+block path
+  - var path = "./";
+
+block body
+  div.wrapper-index.wrapper(data-id="index")

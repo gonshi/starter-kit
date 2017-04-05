@@ -49,6 +49,8 @@ config =
         # "docs": src + "docs/'
 
     js_concat_list: [
+        "#{dist}#{typeDist}/js/lib/bowser.min.js",
+        "#{dist}#{typeDist}/js/lib/jquery-3.1.1.min.js",
         "#{dist}#{typeDist}/js/script.js"
     ]
 
