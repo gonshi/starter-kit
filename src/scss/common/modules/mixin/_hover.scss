@@ -8,3 +8,11 @@
         }
     }
 }
+
+@mixin active(){
+    body.is-pc &{
+        &:active{
+            @content;
+        }
+    }
+}
