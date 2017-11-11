@@ -13,7 +13,7 @@ createSpriteTask = (filePath) ->
             .pipe($.spritesmith({
                 imgName: filePath[2] + '.png',
                 cssName: '_' + filePath[2] + '.scss',
-                imgPath: '../img/' + filePath[2] + '.png?' + Date.now(),
+                imgPath: './img/' + filePath[2] + '.png?' + Date.now(),
                 cssSpritesheetName: filePath[2],
                 cssOpts: {
                   functions: false
