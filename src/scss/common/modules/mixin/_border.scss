@@ -1,0 +1,5 @@
+@mixin border($img, $top, $right, $bottom, $left, $ratio: 1){
+    border-style: solid;
+    border-width: #{$top / $ratio}px #{$right / $ratio}px #{$bottom / $ratio}px #{$left / $ratio}px;
+    border-image: url($img) $top $right $bottom $left fill repeat;
+}

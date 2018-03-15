@@ -10,13 +10,7 @@ class Main{
         /*---------------------------------
          * exec
          ---------------------------------*/
-
-        if(window.mobile){
-            this.$body.addClass('is-sp')
-        }
-        else{
-            this.$body.addClass('is-pc')
-        }
+        this.$body.toggleClass(window.mobile ? 'is-sp' : 'is-pc');
     }
 }
 var main = new Main();

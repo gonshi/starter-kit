@@ -28,17 +28,17 @@
     @include sprite-background-size($sprite);
 }
 // 2x
-@mixin sprite-width-2x($sprite) {
-    width: nth($sprite, 5)/2;
+@mixin sprite-width-nx($sprite,$n) {
+    width: nth($sprite, 5)/$n;
 }
 
-@mixin sprite-height-2x($sprite) {
-    height: nth($sprite, 6)/2;
+@mixin sprite-height-nx($sprite,$n) {
+    height: nth($sprite, 6)/$n;
 }
 
-@mixin sprite-position-2x($sprite) {
-    $sprite-offset-x: nth($sprite, 3)/2;
-    $sprite-offset-y: nth($sprite, 4)/2;
+@mixin sprite-position-nx($sprite, $n) {
+    $sprite-offset-x: nth($sprite, 3)/$n;
+    $sprite-offset-y: nth($sprite, 4)/$n;
     background-position: $sprite-offset-x  $sprite-offset-y;
 }
 
@@ -46,16 +46,20 @@
     background-size: nth($sprite, 7) nth($sprite, 8);
 }
 
-@mixin sprite-background-size-2x($sprite) {
-    background-size: nth($sprite, 7)/2 nth($sprite, 8)/2;
+@mixin sprite-background-size-nx($sprite,$n) {
+    background-size: nth($sprite, 7)/$n nth($sprite, 8)/$n;
 }
 
 @mixin sprite-2x($sprite) {
+    @include sprite-nx($sprite, 2);
+}
+
+@mixin sprite-nx($sprite, $n) {
     @include sprite-image($sprite);
-    @include sprite-position-2x($sprite);
-    @include sprite-width-2x($sprite);
-    @include sprite-height-2x($sprite);
-    @include sprite-background-size-2x($sprite);
+    @include sprite-position-nx($sprite,$n);
+    @include sprite-width-nx($sprite, $n);
+    @include sprite-height-nx($sprite, $n);
+    @include sprite-background-size-nx($sprite, $n);
 }
 
 // use compass
