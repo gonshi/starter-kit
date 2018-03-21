@@ -21,31 +21,19 @@ gulp.task 'build', ['styles', 'jshint', 'browserify:babel', 'concat-js']
 
 # Watch Files For Changes & Reload
 gulp.task 'serve', () ->
-    browserSync.init(
-        notify: false,
-        # Customize the BrowserSync console logging prefix
-        logPrefix: 'Starter Kit',
-        # Run as an https by uncommenting 'https: true'
-        # Note: this uses an unsigned certificate which on first access
-        #       will present a certificate warning in the browser.
-        # https: true,
-        # host: '192.168.1.1',
-        # port: 3000,
-        server:
-            baseDir: [ config.path.htdocs ]
-            index: 'index.html'
-            # routes:
-    )
+    browserSync({
+        port: 35729
+    })
 
-    # default
-    $.watch([config.path.htdocs + '**/*.html'], reload)
-    $.watch([config.path.jade + '**/*.jade'], -> runSequence('jade', reload))
+    $.watch([
+        config.path.dist + '**/*.php',
+    ], reload)
+
     $.watch([
         config.sass.lib,
         config.path.scss_common + '**/*.scss',
         config.path.scss + '**/*.scss'
     ], -> runSequence('styles', reload))
-    # $.watch([config.path.js + '**/*.js'], reload)
     $.watch([config.path.js_src + '**/*.js'], -> runSequence('jshint', 'browserify:babel', 'concat-js', reload))
 
 # Build Production Files, the Default Task
