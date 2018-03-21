@@ -38,14 +38,6 @@ a {
     .only-sp{
         display: none;
     }
-
-    img{
-        visibility: hidden;
-
-        &.is-visible{
-            visibility: visible;
-        }
-    }
 }
 
 @include sp{
